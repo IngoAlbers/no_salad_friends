@@ -16,15 +16,12 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-document.addEventListener("deviceready", onDeviceReady, false);
+document.addEventListener('deviceready', onDeviceReady, false);
 
 function onDeviceReady() {
-
-  $('#play-button').click(function () {
-    $('#audio-player').trigger('play');
-  });
-
-  $('#stop-button').click(function () {
-    $('#audio-player').trigger('pause');
+  $('.big-button').click(function () {
+    $('#audio-player').trigger('pause')
+                      .attr('src', $(this).data('audio-path'))
+                      .trigger('play');
   });
 }
