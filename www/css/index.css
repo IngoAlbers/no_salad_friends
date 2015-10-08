@@ -53,6 +53,7 @@ body {
 .big-button {
   margin: 15px 0 15px 0;
   border: 2px solid black;
+  border-radius: 4px;
   width: 100px;
   height: 60px;
 }
