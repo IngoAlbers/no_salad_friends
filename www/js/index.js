@@ -20,8 +20,12 @@ document.addEventListener('deviceready', onDeviceReady, false);
 
 function onDeviceReady() {
   $('.big-button').click(function () {
-    $('#audio-player').trigger('pause')
-                      .attr('src', $(this).data('audio-path'))
-                      .trigger('play');
+    if($('#audio-player').attr('src') === $(this).data('audio-path')) {
+      $('#audio-player').trigger('pause')
+    } else {
+      $('#audio-player').trigger('pause')
+                        .attr('src', $(this).data('audio-path'))
+                        .trigger('play');
+    }
   });
 }
