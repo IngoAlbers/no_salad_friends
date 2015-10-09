@@ -21,7 +21,8 @@ document.addEventListener('deviceready', onDeviceReady, false);
 function onDeviceReady() {
   $('.big-button').click(function () {
     if($('#audio-player').attr('src') === $(this).data('audio-path')) {
-      $('#audio-player').trigger('pause');
+      $('#audio-player').trigger('pause')
+                        .attr('src', '');
     } else {
       $('#audio-player').trigger('pause')
                         .attr('src', $(this).data('audio-path'))
