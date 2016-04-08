@@ -21,7 +21,7 @@ document.addEventListener('deviceready', onDeviceReady, false);
 var status = 1;
 
 function onDeviceReady() {
-  var my_media = "";
+  var my_media = '';
 
   $('.big-button').on("click", function () {
     src = $(this).data('audio-path');
@@ -32,29 +32,25 @@ function onDeviceReady() {
 
     if(status == 2 && src == my_media.src){
       my_media.pause();
-      //my_media = "";
     }
     else{
-      if(my_media !== ""){
+      if(my_media !== ''){
         my_media.pause();
       }
       my_media = new Media(src, onSuccess, onError, mediaStatus);
       my_media.play({ numberOfLoops: 100 });
     }
-
   });
 }
-
 
 function mediaStatus(s){
   status = s;
 }
 
 function onSuccess() {
-    //console.log("playAudio():Audio Success");
+
 }
 
 function onError(error) {
     console.log(error);
 }
-
