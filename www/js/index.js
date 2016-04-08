@@ -18,15 +18,39 @@
  */
 document.addEventListener('deviceready', onDeviceReady, false);
 
+var status = 1;
+
 function onDeviceReady() {
-  $('.big-button').click(function () {
-    if($('#audio-player').attr('src') === $(this).data('audio-path')) {
-      $('#audio-player').trigger('pause')
-                        .attr('src', '');
-    } else {
-      $('#audio-player').trigger('pause')
-                        .attr('src', $(this).data('audio-path'))
-                        .trigger('play');
+  var my_media = '';
+
+  $('.big-button').on("click", function () {
+    src = $(this).data('audio-path');
+
+    if(device.platform == 'Android'){
+      src = '/android_asset/www/' + src;
+    }
+
+    if(status == 2 && src == my_media.src){
+      my_media.pause();
+    }
+    else{
+      if(my_media !== ''){
+        my_media.pause();
+      }
+      my_media = new Media(src, onSuccess, onError, mediaStatus);
+      my_media.play({ numberOfLoops: 100 });
     }
   });
+}
+
+function mediaStatus(s){
+  status = s;
+}
+
+function onSuccess() {
+
+}
+
+function onError(error) {
+    console.log(error);
 }
