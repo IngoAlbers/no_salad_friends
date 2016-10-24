@@ -19,28 +19,36 @@
 document.addEventListener('deviceready', onDeviceReady, false);
 
 var status = 1;
+var my_media = '';
+var src = '';
 
 function onDeviceReady() {
-  var my_media = '';
 
   $('.big-button').on("click", function () {
     src = $(this).data('audio-path');
+    playSound(src);
+  });
+}
 
-    if(device.platform == 'Android'){
-      src = '/android_asset/www/' + src;
-    }
+function playSound(src) {
 
-    if(status == 2 && src == my_media.src){
+  if(device.platform == 'Android'){
+    src = '/android_asset/www/' + src;
+  }
+
+  if(status == 2 && src == my_media.src){
+    my_media.pause();
+  }
+  else{
+    if(my_media !== ''){
       my_media.pause();
     }
-    else{
-      if(my_media !== ''){
-        my_media.pause();
-      }
-      my_media = new Media(src, onSuccess, onError, mediaStatus);
-      my_media.play({ numberOfLoops: 100 });
-    }
-  });
+    my_media = new Media(src, onSuccess, onError, mediaStatus);
+    my_media.play();
+  }  
+
+  console.log("Media Status = " + status + " src = " + src + " my_media.src= "  +  my_media.src);
+
 }
 
 function mediaStatus(s){
@@ -48,7 +56,7 @@ function mediaStatus(s){
 }
 
 function onSuccess() {
-
+  playSound(src);
 }
 
 function onError(error) {
