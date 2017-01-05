@@ -39,7 +39,7 @@ body {
 .app {
   position: relative;
   margin: 0 auto;
-  width: 100px;
+  width: 100%;
   text-align: center;
 }
 
@@ -51,7 +51,7 @@ body {
 }
 
 .big-button {
-  margin: 15px 0 15px 0;
+  margin: 15px auto;
   border: 2px solid black;
   border-radius: 4px;
   width: 100px;
@@ -67,3 +67,96 @@ h1 {
   padding: 0px;
   text-align: center;
 }
+
+.page-navigation {
+  backface-visibility: hidden;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: translate3d(0, 0, 0);
+  transform-style: preserve-3d;
+  visibility: hidden;
+  width: 100%;
+}
+
+.page-navigation.page-active {
+  visibility: visible;
+  z-index: 1;
+}
+
+/*.page-navigation.subpage-active {
+  visibility: visible;
+  z-index: 1;
+}*/
+
+
+.page-active,
+.no-js .page-navigation {
+  visibility: visible;
+}
+.no-js body {
+  overflow: auto;
+}
+
+.pt-page-moveToLeft {
+  animation: moveToLeft .6s ease both;
+}
+.pt-page-moveFromLeft {
+  animation: moveFromLeft .6s ease both;
+}
+.pt-page-moveToRight {
+  animation: moveToRight .6s ease both;
+}
+.pt-page-moveFromRight {
+  animation: moveFromRight .6s ease both;
+}
+
+.food-image {
+  width: 80%;
+  max-width: 500px;
+}
+
+@keyframes moveToLeft {
+  to { transform: translateX(-100%); }
+}
+@keyframes moveFromLeft {
+  from { transform: translateX(-100%); }
+}
+@keyframes moveToRight {
+  to { transform: translateX(100%); }
+}
+@keyframes moveFromRight {
+  from { transform: translateX(100%); }
+}
+
+
+.btn {
+  background: #FFD90F;
+  background-image: -webkit-linear-gradient(top, #FFD90F, #FFD90F);
+  background-image: -moz-linear-gradient(top, #FFD90F, #FFD90F);
+  background-image: -ms-linear-gradient(top, #FFD90F, #FFD90F);
+  background-image: -o-linear-gradient(top, #FFD90F, #FFD90F);
+  background-image: linear-gradient(to bottom, #FFD90F, #FFD90F);
+  -webkit-border-radius: 10;
+  -moz-border-radius: 10;
+  border-radius: 10px;
+  font-family: Arial;
+  color: #000;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  border: solid #000 4px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #cccccc;
+  background-image: -webkit-linear-gradient(top, #cccccc, #cccccc);
+  background-image: -moz-linear-gradient(top, #cccccc, #cccccc);
+  background-image: -ms-linear-gradient(top, #cccccc, #cccccc);
+  background-image: -o-linear-gradient(top, #cccccc, #cccccc);
+  background-image: linear-gradient(to bottom, #cccccc, #cccccc);
+  text-decoration: none;
+}
+

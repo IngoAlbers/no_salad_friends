@@ -26,7 +26,14 @@ function onDeviceReady() {
 
   $('.big-button').on("click", function () {
     src = $(this).data('audio-path');
+    var country = $(this).data('country');
     playSound(src);
+    changePage(country);
+  });
+
+  $('.back-button').on("click", function () {
+    stopSound(src);
+    changePage('main');
   });
 }
 
@@ -51,6 +58,10 @@ function playSound(src) {
 
 }
 
+function stopSound() {
+  my_media.pause();
+}
+
 function mediaStatus(s){
   status = s;
 }
@@ -62,3 +73,42 @@ function onSuccess() {
 function onError(error) {
   console.log(error);
 }
+
+function changePage(country) {
+  if(country == "main"){
+    $(".sub-page").addClass("pt-page-moveToRight");
+    $(".main").addClass("page-active pt-page-moveFromLeft");
+    setTimeout(function(){
+      $(".sub-page").removeClassPrefix("pt-page");
+      $(".main").removeClassPrefix("pt-page");
+      $(".sub-page").removeClass("page-active");
+      $(".sub-page").removeClass("subpage-active");
+    }, 600);      
+  }
+  else{
+    $(".food-image").attr('src', 'img/food/'+country+'_01.jpg');
+    $(".main").addClass("pt-page-moveToLeft");    
+    $(".sub-page").addClass("page-active pt-page-moveFromRight");  
+    setTimeout(function(){
+      $(".main").removeClassPrefix("pt-page");
+      $(".sub-page").removeClassPrefix("pt-page");
+      $(".main").removeClass("page-active");
+      $(".main").removeClass("subpage-active");
+    }, 600);  
+  }
+  
+
+
+}
+
+
+
+$.fn.removeClassPrefix = function(prefix) {
+  this.each(function(i, el) {
+    var classes = el.className.split(" ").filter(function(c) {
+      return c.lastIndexOf(prefix, 0) !== 0;
+    });
+    el.className = $.trim(classes.join(" "));
+  });
+  return this;
+};
