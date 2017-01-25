@@ -23,6 +23,11 @@ var my_media = '';
 var src = '';
 
 function onDeviceReady() {
+  navigator.app.overrideButton("backbutton", true);
+  document.addEventListener("pause", onPause, false);
+  document.addEventListener("resume", onResume, false);
+  document.addEventListener("backbutton", onBackKeyDown, false);
+
 
   $('.big-button').on("click", function () {
     src = $(this).data('audio-path');
@@ -73,17 +78,36 @@ function onError(error) {
   console.log(error);
 }
 
+function onPause() {
+  // Stop media on pause
+  stopSound();
+  console.log("onpause");
+}
+
+function onResume() {
+  console.log("onresume");
+  // Go to start-page if we are on a subpage
+  if(!$(".main").hasClass("page-active")){
+    changePage("main");
+  }
+}
+
+function onBackKeyDown() {
+  if(!$(".main").hasClass("page-active")){
+    changePage("main");
+  }
+  else{
+    console.log("Good Bye! :)");
+    stopSound();
+    navigator.app.exitApp();
+  }  
+}
+
 function changePage(country) {
   if(country == "main"){
     $(".sub-page").addClass("pt-page-moveToRight");
     $(".main").addClass("page-active pt-page-moveFromLeft");
     clearTransitions($(".sub-page"), $(".main"));
-    /*setTimeout(function(){
-      $(".sub-page").removeClassPrefix("pt-page");
-      $(".main").removeClassPrefix("pt-page");
-      $(".sub-page").removeClass("page-active");
-      $(".sub-page").removeClass("subpage-active");
-    }, 600);      */
   }
   else{
     $(".food-image").hide();
@@ -91,12 +115,6 @@ function changePage(country) {
     $(".main").addClass("pt-page-moveToLeft");    
     $(".sub-page").addClass("page-active pt-page-moveFromRight");  
     clearTransitions($(".main"), $(".sub-page"));
-    /*setTimeout(function(){
-      $(".main").removeClassPrefix("pt-page");
-      $(".sub-page").removeClassPrefix("pt-page");
-      $(".main").removeClass("page-active");
-      $(".main").removeClass("subpage-active");
-    }, 600);  */
   }
 }
 
