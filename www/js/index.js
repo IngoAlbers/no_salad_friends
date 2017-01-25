@@ -81,11 +81,9 @@ function onError(error) {
 function onPause() {
   // Stop media on pause
   stopSound();
-  console.log("onpause");
 }
 
 function onResume() {
-  console.log("onresume");
   // Go to start-page if we are on a subpage
   if(!$(".main").hasClass("page-active")){
     changePage("main");
@@ -93,9 +91,11 @@ function onResume() {
 }
 
 function onBackKeyDown() {
+  // If we are on a subpage, go back to main-page
   if(!$(".main").hasClass("page-active")){
     changePage("main");
   }
+  // If we are on the main-page, close the app
   else{
     console.log("Good Bye! :)");
     stopSound();

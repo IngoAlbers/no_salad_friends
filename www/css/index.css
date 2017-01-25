@@ -126,7 +126,6 @@ h1 {
   from { transform: translateX(100%); }
 }
 
-
 .btn {
   background: #FFD90F;
   background-image: -webkit-linear-gradient(top, #FFD90F, #FFD90F);
@@ -155,4 +154,3 @@ h1 {
   background-image: linear-gradient(to bottom, #cccccc, #cccccc);
   text-decoration: none;
 }
-
