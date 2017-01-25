@@ -85,12 +85,6 @@ h1 {
   z-index: 1;
 }
 
-/*.page-navigation.subpage-active {
-  visibility: visible;
-  z-index: 1;
-}*/
-
-
 .page-active,
 .no-js .page-navigation {
   visibility: visible;
@@ -115,6 +109,8 @@ h1 {
 .food-image {
   width: 80%;
   max-width: 500px;
+  border: 2px solid black;
+  border-radius: 2px;
 }
 
 @keyframes moveToLeft {
