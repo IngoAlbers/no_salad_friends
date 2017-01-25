@@ -32,7 +32,7 @@ function onDeviceReady() {
   });
 
   $('.back-button').on("click", function () {
-    stopSound(src);
+    stopSound();
     changePage('main');
   });
 }
@@ -54,8 +54,7 @@ function playSound(src) {
     my_media.play();
   }  
 
-  console.log("Media Status = " + status + " src = " + src + " my_media.src= "  +  my_media.src);
-
+  // console.log("Media Status = " + status + " src = " + src + " my_media.src= "  +  my_media.src);
 }
 
 function stopSound() {
@@ -78,30 +77,37 @@ function changePage(country) {
   if(country == "main"){
     $(".sub-page").addClass("pt-page-moveToRight");
     $(".main").addClass("page-active pt-page-moveFromLeft");
-    setTimeout(function(){
+    clearTransitions($(".sub-page"), $(".main"));
+    /*setTimeout(function(){
       $(".sub-page").removeClassPrefix("pt-page");
       $(".main").removeClassPrefix("pt-page");
       $(".sub-page").removeClass("page-active");
       $(".sub-page").removeClass("subpage-active");
-    }, 600);      
+    }, 600);      */
   }
   else{
-    $(".food-image").attr('src', 'img/food/'+country+'_01.jpg');
+    $(".food-image").hide();
+    $("#food-image-"+country+"-01").show();
     $(".main").addClass("pt-page-moveToLeft");    
     $(".sub-page").addClass("page-active pt-page-moveFromRight");  
-    setTimeout(function(){
+    clearTransitions($(".main"), $(".sub-page"));
+    /*setTimeout(function(){
       $(".main").removeClassPrefix("pt-page");
       $(".sub-page").removeClassPrefix("pt-page");
       $(".main").removeClass("page-active");
       $(".main").removeClass("subpage-active");
-    }, 600);  
+    }, 600);  */
   }
-  
-
-
 }
 
-
+function clearTransitions(page_old, page_new){
+  setTimeout(function(){
+    page_old.removeClassPrefix("pt-page");
+    page_new.removeClassPrefix("pt-page");
+    page_old.removeClass("page-active");
+    page_old.removeClass("subpage-active");
+  }, 600);  
+}
 
 $.fn.removeClassPrefix = function(prefix) {
   this.each(function(i, el) {
