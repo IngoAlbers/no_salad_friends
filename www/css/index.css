@@ -95,15 +95,22 @@ h1 {
 
 .pt-page-moveToLeft {
   animation: moveToLeft .6s ease both;
+  -webkit-animation: moveToLeft .6s ease both;
 }
+
 .pt-page-moveFromLeft {
   animation: moveFromLeft .6s ease both;
+  -webkit-animation: moveFromLeft .6s ease both;
 }
+
 .pt-page-moveToRight {
   animation: moveToRight .6s ease both;
+  -webkit-animation: moveToRight .6s ease both;
 }
+
 .pt-page-moveFromRight {
   animation: moveFromRight .6s ease both;
+  -webkit-animation: moveFromRight .6s ease both;
 }
 
 .food-image {
@@ -124,6 +131,19 @@ h1 {
 }
 @keyframes moveFromRight {
   from { transform: translateX(100%); }
+}
+
+@-webkit-keyframes moveToLeft {
+  to { -webkit-transform: translateX(-100%); }
+}
+@-webkit-keyframes moveFromLeft {
+  from { -webkit-transform: translateX(-100%); }
+}
+@-webkit-keyframes moveToRight {
+  to { -webkit-transform: translateX(100%); }
+}
+@-webkit-keyframes moveFromRight {
+  from { -webkit-transform: translateX(100%); }
 }
 
 .btn {
