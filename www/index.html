@@ -42,24 +42,41 @@
   </head>
   <body>
     <div class="app">
-      <div class="big-button" data-audio-path="audio/1.mp3">
-        <img src="img/usa.png"/>
+      <div class="main page-navigation page-active">
+        <div class="big-button" data-audio-path="audio/1.mp3" data-country="usa">
+          <img src="img/usa.png"/>
+        </div>
+        <div class="big-button" data-audio-path="audio/2.mp3" data-country="germany">
+          <img src="img/germany.png"/>
+        </div>
+        <div class="big-button" data-audio-path="audio/3.mp3" data-country="italy">
+          <img src="img/italy.png"/>
+        </div>
+        <div class="big-button" data-audio-path="audio/4.mp3" data-country="france">
+          <img src="img/france.png"/>
+        </div>
+        <div class="big-button" data-audio-path="audio/5.mp3" data-country="spain">
+          <img src="img/spain.png"/>
+        </div>
+        <div class="big-button" data-audio-path="audio/6.mp3" data-country="brasil">
+          <img src="img/brazil.png"/>
+        </div>      
       </div>
-      <div class="big-button" data-audio-path="audio/2.mp3">
-        <img src="img/germany.png"/>
+
+      <div class="sub-page page-navigation">
+        <br><br>
+        <img class="food-image" id="food-image-usa-01"     src="img/food/400/usa_01.jpg"     srcset="img/food/600/usa_01.jpg 800w, img/food/800/usa_01.jpg 1000w" />
+        <img class="food-image" id="food-image-germany-01" src="img/food/400/germany_01.jpg" srcset="img/food/600/germany_01.jpg 800w, img/food/800/germany_01.jpg 1000w" />
+        <img class="food-image" id="food-image-italy-01"   src="img/food/400/italy_01.jpg"   srcset="img/food/600/italy_01.jpg 800w, img/food/800/italy_01.jpg 1000w" />
+        <img class="food-image" id="food-image-france-01"  src="img/food/400/france_01.jpg"  srcset="img/food/600/france_01.jpg 800w, img/food/800/france_01.jpg 1000w" />
+        <img class="food-image" id="food-image-spain-01"   src="img/food/400/spain_01.jpg"   srcset="img/food/600/spain_01.jpg 800w, img/food/800/spain_01.jpg 1000w" />
+        <img class="food-image" id="food-image-brasil-01"  src="img/food/400/brasil_01.jpg"  srcset="img/food/600/brasil_01.jpg 800w, img/food/800/brasil_01.jpg 1000w" />
+        <br><br>
+        <svg class="btn back-button" fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 0h24v24H0z" fill="none"/>
+          <path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/>
+        </svg>
       </div>
-      <div class="big-button" data-audio-path="audio/3.mp3">
-        <img src="img/italy.png"/>
-      </div>
-      <div class="big-button" data-audio-path="audio/4.mp3">
-        <img src="img/france.png"/>
-      </div>
-      <div class="big-button" data-audio-path="audio/5.mp3">
-        <img src="img/spain.png"/>
-      </div>
-      <div class="big-button" data-audio-path="audio/6.mp3">
-        <img src="img/brazil.png"/>
-      </div>      
     </div>
   </body>
 </html>

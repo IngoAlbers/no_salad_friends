@@ -23,10 +23,22 @@ var my_media = '';
 var src = '';
 
 function onDeviceReady() {
+  navigator.app.overrideButton("backbutton", true);
+  document.addEventListener("pause", onPause, false);
+  document.addEventListener("resume", onResume, false);
+  document.addEventListener("backbutton", onBackKeyDown, false);
+
 
   $('.big-button').on("click", function () {
     src = $(this).data('audio-path');
+    var country = $(this).data('country');
     playSound(src);
+    changePage(country);
+  });
+
+  $('.back-button').on("click", function () {
+    stopSound();
+    changePage('main');
   });
 }
 
@@ -47,8 +59,11 @@ function playSound(src) {
     my_media.play();
   }  
 
-  console.log("Media Status = " + status + " src = " + src + " my_media.src= "  +  my_media.src);
+  // console.log("Media Status = " + status + " src = " + src + " my_media.src= "  +  my_media.src);
+}
 
+function stopSound() {
+  my_media.pause();
 }
 
 function mediaStatus(s){
@@ -62,3 +77,62 @@ function onSuccess() {
 function onError(error) {
   console.log(error);
 }
+
+function onPause() {
+  // Stop media on pause
+  stopSound();
+}
+
+function onResume() {
+  // Go to start-page if we are on a subpage
+  if(!$(".main").hasClass("page-active")){
+    changePage("main");
+  }
+}
+
+function onBackKeyDown() {
+  // If we are on a subpage, go back to main-page
+  if(!$(".main").hasClass("page-active")){
+    changePage("main");
+  }
+  // If we are on the main-page, close the app
+  else{
+    console.log("Good Bye! :)");
+    stopSound();
+    navigator.app.exitApp();
+  }  
+}
+
+function changePage(country) {
+  if(country == "main"){
+    $(".sub-page").addClass("pt-page-moveToRight");
+    $(".main").addClass("page-active pt-page-moveFromLeft");
+    clearTransitions($(".sub-page"), $(".main"));
+  }
+  else{
+    $(".food-image").hide();
+    $("#food-image-"+country+"-01").show();
+    $(".main").addClass("pt-page-moveToLeft");    
+    $(".sub-page").addClass("page-active pt-page-moveFromRight");  
+    clearTransitions($(".main"), $(".sub-page"));
+  }
+}
+
+function clearTransitions(page_old, page_new){
+  setTimeout(function(){
+    page_old.removeClassPrefix("pt-page");
+    page_new.removeClassPrefix("pt-page");
+    page_old.removeClass("page-active");
+    page_old.removeClass("subpage-active");
+  }, 600);  
+}
+
+$.fn.removeClassPrefix = function(prefix) {
+  this.each(function(i, el) {
+    var classes = el.className.split(" ").filter(function(c) {
+      return c.lastIndexOf(prefix, 0) !== 0;
+    });
+    el.className = $.trim(classes.join(" "));
+  });
+  return this;
+};

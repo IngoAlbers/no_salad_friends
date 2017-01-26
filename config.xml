@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.ingoalbers.no_salad_friends" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.ingoalbers.no_salad_friends" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>YouDontWinFriendsWithSalad</name>
     <description>
-        An application which helps you find friends.
+      An application which helps you find friends.
     </description>
     <author email="ingo.albers@live.de">
-        Ingo Albers, his (no-salad) friends, and Alberto
+      Ingo Albers, his (no-salad) friends, and Alberto
     </author>
     <content src="index.html" />
     <access origin="*" />
@@ -16,12 +16,9 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <platform name="android">
-        <allow-intent href="market:*" />
+      <allow-intent href="market:*" />
     </platform>
-    <platform name="ios">
-        <allow-intent href="itms:*" />
-        <allow-intent href="itms-apps:*" />
-    </platform>
+    <icon density="mdpi" height="57" platform="android" src="www/app_icon.png" width="57" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
     <plugin name="cordova-plugin-device" spec="~1.1.1" />
     <plugin name="cordova-plugin-media" spec="~2.2.0" />
