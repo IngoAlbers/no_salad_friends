@@ -21,6 +21,7 @@ document.addEventListener('deviceready', onDeviceReady, false);
 var status = 1;
 var my_media = '';
 var src = '';
+var loop = true;
 
 function onDeviceReady() {
   navigator.app.overrideButton("backbutton", true);
@@ -37,8 +38,14 @@ function onDeviceReady() {
   });
 
   $('.back-button').on("click", function () {
-    stopSound();
+    stopSound(false);
     changePage('main');
+  });
+
+  $('.close-symbol').on("click", function () {
+    console.log("Good Bye! :)");
+    stopSound(true);
+    navigator.app.exitApp();  
   });
 }
 
@@ -47,6 +54,7 @@ function playSound(src) {
   if(device.platform == 'Android'){
     src = '/android_asset/www/' + src;
   }
+  loop = true;
 
   if(status == 2 && src == my_media.src){
     my_media.pause();
@@ -62,8 +70,18 @@ function playSound(src) {
   // console.log("Media Status = " + status + " src = " + src + " my_media.src= "  +  my_media.src);
 }
 
-function stopSound() {
-  my_media.pause();
+function stopSound(stop) {
+  loop = false;
+  // console.log("stopSound("+stop+")");
+  if(my_media !== null && my_media !== ''){
+    if(stop){
+      my_media.stop();
+      my_media.release();
+    }
+    else{
+      my_media.pause();  
+    }
+  }
 }
 
 function mediaStatus(s){
@@ -71,7 +89,9 @@ function mediaStatus(s){
 }
 
 function onSuccess() {
-  playSound(src);
+  if(loop){
+    playSound(src);
+  }
 }
 
 function onError(error) {
@@ -79,18 +99,22 @@ function onError(error) {
 }
 
 function onPause() {
+  // console.log("onPause()");
   // Stop media on pause
-  stopSound();
+  stopSound(true);
 }
 
 function onResume() {
+  // console.log("onResume()");
   // Go to start-page if we are on a subpage
+  stopSound(false);
   if(!$(".main").hasClass("page-active")){
     changePage("main");
   }
 }
 
 function onBackKeyDown() {
+  // console.log("onBackKeyDown()");
   // If we are on a subpage, go back to main-page
   if(!$(".main").hasClass("page-active")){
     changePage("main");
@@ -98,7 +122,7 @@ function onBackKeyDown() {
   // If we are on the main-page, close the app
   else{
     console.log("Good Bye! :)");
-    stopSound();
+    //stopSound(true);
     navigator.app.exitApp();
   }  
 }
