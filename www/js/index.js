@@ -41,6 +41,12 @@ function onDeviceReady() {
     stopSound(false);
     changePage('main');
   });
+
+  $('.close-symbol').on("click", function () {
+    console.log("Good Bye! :)");
+    stopSound(true);
+    navigator.app.exitApp();  
+  });
 }
 
 function playSound(src) {
@@ -67,12 +73,14 @@ function playSound(src) {
 function stopSound(stop) {
   loop = false;
   console.log("stopSound("+stop+")");
-  if(stop){
-    my_media.stop();
-    my_media.release();
-  }
-  else{
-    my_media.pause();  
+  if(my_media !== null && my_media !== ''){
+    if(stop){
+      my_media.stop();
+      my_media.release();
+    }
+    else{
+      my_media.pause();  
+    }
   }
 }
 
