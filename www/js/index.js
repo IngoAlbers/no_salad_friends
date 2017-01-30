@@ -72,7 +72,7 @@ function playSound(src) {
 
 function stopSound(stop) {
   loop = false;
-  console.log("stopSound("+stop+")");
+  // console.log("stopSound("+stop+")");
   if(my_media !== null && my_media !== ''){
     if(stop){
       my_media.stop();
@@ -99,13 +99,13 @@ function onError(error) {
 }
 
 function onPause() {
-  console.log("onPause()");
+  // console.log("onPause()");
   // Stop media on pause
   stopSound(true);
 }
 
 function onResume() {
-  console.log("onResume()");
+  // console.log("onResume()");
   // Go to start-page if we are on a subpage
   stopSound(false);
   if(!$(".main").hasClass("page-active")){
@@ -114,7 +114,7 @@ function onResume() {
 }
 
 function onBackKeyDown() {
-  console.log("onBackKeyDown()");
+  // console.log("onBackKeyDown()");
   // If we are on a subpage, go back to main-page
   if(!$(".main").hasClass("page-active")){
     changePage("main");
