@@ -41,12 +41,6 @@ function onDeviceReady() {
     stopSound(false);
     changePage('main');
   });
-
-  $('.close-symbol').on("click", function () {
-    console.log("Good Bye! :)");
-    stopSound(true);
-    navigator.app.exitApp();  
-  });
 }
 
 function playSound(src) {
@@ -65,7 +59,7 @@ function playSound(src) {
     }
     my_media = new Media(src, onSuccess, onError, mediaStatus);
     my_media.play();
-  }  
+  }
 
   // console.log("Media Status = " + status + " src = " + src + " my_media.src= "  +  my_media.src);
 }
@@ -79,7 +73,7 @@ function stopSound(stop) {
       my_media.release();
     }
     else{
-      my_media.pause();  
+      my_media.pause();
     }
   }
 }
@@ -124,7 +118,7 @@ function onBackKeyDown() {
     console.log("Good Bye! :)");
     //stopSound(true);
     navigator.app.exitApp();
-  }  
+  }
 }
 
 function changePage(country) {
@@ -136,8 +130,8 @@ function changePage(country) {
   else{
     $(".food-image").hide();
     $("#food-image-"+country+"-01").show();
-    $(".main").addClass("pt-page-moveToLeft");    
-    $(".sub-page").addClass("page-active pt-page-moveFromRight");  
+    $(".main").addClass("pt-page-moveToLeft");
+    $(".sub-page").addClass("page-active pt-page-moveFromRight");
     clearTransitions($(".main"), $(".sub-page"));
   }
 }
@@ -148,7 +142,7 @@ function clearTransitions(page_old, page_new){
     page_new.removeClassPrefix("pt-page");
     page_old.removeClass("page-active");
     page_old.removeClass("subpage-active");
-  }, 600);  
+  }, 600);
 }
 
 $.fn.removeClassPrefix = function(prefix) {
