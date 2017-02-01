@@ -1,8 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.ingoalbers.no_salad_friends" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>YouDontWinFriendsWithSalad</name>
+    <name>No Salad Friends</name>
     <description>
-      An application which helps you find friends.
+      Simpsons already did it! And now you can also do it. Stop eating the food of my food!
+      You can listen to the classic sound of meaty tastiness. Mhmmmm... bacon!
+      Also in YOUR language (your language might not be included)
     </description>
     <author email="ingo.albers@live.de">
       Ingo Albers, his (no-salad) friends, and Alberto
