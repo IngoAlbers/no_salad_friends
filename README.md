@@ -1,9 +1,12 @@
 #You don't win friends with salad!
 
-[![Join the chat at https://gitter.im/IngoAlbers/no_salad_friends](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/IngoAlbers/no_salad_friends?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Simpsons already did it!
 And now **you** can also do it.
 Stop eating the food of my food.
+
+<a href='https://play.google.com/store/apps/details?id=com.ingoalbers.no_salad_friends'>
+  <img width=200 alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/>
+</a>
 
 ##Requirements
 This application uses [Apache Cordova](http://cordova.apache.org/).
