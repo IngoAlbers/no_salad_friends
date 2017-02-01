@@ -38,9 +38,12 @@ body {
 /* Portrait layout (default) */
 .app {
   position: relative;
+  height: 600px;
+  display: block;
   margin: 0 auto;
   width: 100%;
   text-align: center;
+  overflow-y: hidden;
 }
 
 /* Landscape layout (with min-width) */
