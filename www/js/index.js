@@ -38,8 +38,10 @@ function onDeviceReady() {
   });
 
   $('.back-button').on("click", function () {
-    stopSound(false);
-    changePage('main');
+    if(!$(".main").hasClass("page-active")){
+      stopSound(false);
+      changePage('main');
+    }
   });
 }
 
