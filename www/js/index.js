@@ -113,6 +113,7 @@ function onBackKeyDown() {
   // console.log("onBackKeyDown()");
   // If we are on a subpage, go back to main-page
   if(!$(".main").hasClass("page-active")){
+    stopSound(false);
     changePage("main");
   }
   // If we are on the main-page, close the app
