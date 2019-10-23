@@ -18,8 +18,9 @@
   under the License.
 -->
 <html>
-  <head>
-    <!--
+
+<head>
+  <!--
     Customize this policy to fit your own app's needs. For more guidance, see:
       https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
     Some notes:
@@ -28,55 +29,67 @@
       * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
         * Enable inline JS: add 'unsafe-inline' to default-src
     -->
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="msapplication-tap-highlight" content="no">
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <link rel="shortcut icon" href="img/favicon.ico">
-    <title>You don't win friends with salad!</title>
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-  </head>
-  <body>
-    <div class="app">
-      <div class="main page-navigation page-active">
-        <div class="big-button" data-audio-path="audio/1.mp3" data-country="usa">
-          <img src="img/usa.png"/>
-        </div>
-        <div class="big-button" data-audio-path="audio/2.mp3" data-country="germany">
-          <img src="img/germany.png"/>
-        </div>
-        <div class="big-button" data-audio-path="audio/3.mp3" data-country="italy">
-          <img src="img/italy.png"/>
-        </div>
-        <div class="big-button" data-audio-path="audio/4.mp3" data-country="france">
-          <img src="img/france.png"/>
-        </div>
-        <div class="big-button" data-audio-path="audio/5.mp3" data-country="spain">
-          <img src="img/spain.png"/>
-        </div>
-        <div class="big-button" data-audio-path="audio/6.mp3" data-country="brasil">
-          <img src="img/brazil.png"/>
-        </div>
-      </div>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport"
+    content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>You don't win friends with salad!</title>
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+</head>
 
-      <div class="sub-page page-navigation">
-        <br><br>
-        <img class="food-image" id="food-image-usa-01"     src="img/food/400/usa_01.jpg"     srcset="img/food/600/usa_01.jpg 800w, img/food/800/usa_01.jpg 1000w" />
-        <img class="food-image" id="food-image-germany-01" src="img/food/400/germany_01.jpg" srcset="img/food/600/germany_01.jpg 800w, img/food/800/germany_01.jpg 1000w" />
-        <img class="food-image" id="food-image-italy-01"   src="img/food/400/italy_01.jpg"   srcset="img/food/600/italy_01.jpg 800w, img/food/800/italy_01.jpg 1000w" />
-        <img class="food-image" id="food-image-france-01"  src="img/food/400/france_01.jpg"  srcset="img/food/600/france_01.jpg 800w, img/food/800/france_01.jpg 1000w" />
-        <img class="food-image" id="food-image-spain-01"   src="img/food/400/spain_01.jpg"   srcset="img/food/600/spain_01.jpg 800w, img/food/800/spain_01.jpg 1000w" />
-        <img class="food-image" id="food-image-brasil-01"  src="img/food/400/brasil_01.jpg"  srcset="img/food/600/brasil_01.jpg 800w, img/food/800/brasil_01.jpg 1000w" />
-        <br><br>
-        <svg class="btn back-button" fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 0h24v24H0z" fill="none"/>
-          <path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/>
-        </svg>
+<body>
+  <div class="app">
+    <div class="main page-navigation page-active">
+      <div class="big-button" data-audio-path="audio/1.mp3" data-country="usa">
+        <img src="img/usa.png" />
+      </div>
+      <div class="big-button" data-audio-path="audio/2.mp3" data-country="germany">
+        <img src="img/germany.png" />
+      </div>
+      <div class="big-button" data-audio-path="audio/3.mp3" data-country="italy">
+        <img src="img/italy.png" />
+      </div>
+      <div class="big-button" data-audio-path="audio/4.mp3" data-country="france">
+        <img src="img/france.png" />
+      </div>
+      <div class="big-button" data-audio-path="audio/5.mp3" data-country="spain">
+        <img src="img/spain.png" />
+      </div>
+      <div class="big-button" data-audio-path="audio/6.mp3" data-country="brasil">
+        <img src="img/brazil.png" />
       </div>
     </div>
-  </body>
+
+    <div class="sub-page page-navigation">
+      <br><br>
+      <img class="food-image" id="food-image-usa-01" src="img/food/400/usa_01.jpg"
+        srcset="img/food/600/usa_01.jpg 800w, img/food/800/usa_01.jpg 1000w" />
+      <img class="food-image" id="food-image-germany-01" src="img/food/400/germany_01.jpg"
+        srcset="img/food/600/germany_01.jpg 800w, img/food/800/germany_01.jpg 1000w" />
+      <img class="food-image" id="food-image-italy-01" src="img/food/400/italy_01.jpg"
+        srcset="img/food/600/italy_01.jpg 800w, img/food/800/italy_01.jpg 1000w" />
+      <img class="food-image" id="food-image-france-01" src="img/food/400/france_01.jpg"
+        srcset="img/food/600/france_01.jpg 800w, img/food/800/france_01.jpg 1000w" />
+      <img class="food-image" id="food-image-spain-01" src="img/food/400/spain_01.jpg"
+        srcset="img/food/600/spain_01.jpg 800w, img/food/800/spain_01.jpg 1000w" />
+      <img class="food-image" id="food-image-brasil-01" src="img/food/400/brasil_01.jpg"
+        srcset="img/food/600/brasil_01.jpg 800w, img/food/800/brasil_01.jpg 1000w" />
+      <br><br>
+      <svg class="btn back-button" fill="#000000" height="24" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0h24v24H0z" fill="none" />
+        <path
+          d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z" />
+      </svg>
+    </div>
+  </div>
+</body>
+
 </html>
